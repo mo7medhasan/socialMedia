@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require("../module/user.module");
+const User = require("../module/User.module");
 const bcrypt = require("bcrypt");
 
 //sign up
@@ -11,6 +11,13 @@ router.post("/register", async (req, res) => {
       userName: req.body.userName,
       email: req.body.email,
       password: hashedPassword,
+      // profilePicture:req.body.profilePicture,
+      // coverPicture:req.body.coverPicture,
+      desc: req.body.desc,
+      city: req.body.city,
+      from: req.body.from,
+      relationship: req.body.relationship
+
     });
     const user = await newUser.save();
     res.status(200).json(user);

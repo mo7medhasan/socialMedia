@@ -1,7 +1,6 @@
 const express=require('express');
 const app=express();
 const PORT=process.env.PORT||5000;
-const mongoose=require('mongoose');
 const dotenv=require("dotenv");
 const helmet=require("helmet");
 const morgan=require("morgan");
@@ -14,6 +13,7 @@ const postRoute=require('./routes/posts.routes')
 
 
 dotenv.config();
+
 require('./db');
 
 //middleware 
@@ -30,5 +30,5 @@ app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute)
 
 app.listen(PORT,()=>{
-console.log("the server is connected 😀🤗😎");
+console.log(`the server is connected ${PORT }😀🤗😎`);
 })
