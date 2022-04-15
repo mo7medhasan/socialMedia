@@ -8,7 +8,7 @@ import { useEffect,useState } from 'react';
 import axios from "axios"
 
 
-export default function Feed() {
+export default function Feed({userName}) {
 
 const [posts,setPosts]=useState([]);
 
@@ -16,22 +16,23 @@ const [posts,setPosts]=useState([]);
 
 useEffect(() => {
 const fetchPosts= async()=>{
-  const res=await axios.get("posts/timeline/62470bcf3e61d2aa3c452030");
-  console.log(res);
+  const res=  userName ? await axios.get("posts/profile/"+userName) : 
+  await axios.get("posts/timeline/62470bcf3e61d2aa3c452030"); 
+  setPosts(res.data);
 
 }
 fetchPosts();
- }, [])
+ }, [userName])
 
   return (
     <div className="feed">
       <div className="feedWrapper">
         <Share />
-        {/* {Posts.map((p)=>(
-        <Post  key={p.id} post={p} />
+        {posts.map((p)=>(
+        <Post  key={p._id} post={p} />
         
         )) }
-         */}
+        
  
 
       </div>
