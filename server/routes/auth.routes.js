@@ -13,10 +13,10 @@ router.post("/register", async (req, res) => {
       password: hashedPassword,
       // profilePicture:req.body.profilePicture,
       // coverPicture:req.body.coverPicture,
-      desc: req.body.desc,
-      city: req.body.city,
-      from: req.body.from,
-      relationship: req.body.relationship
+      // desc: req.body.desc,
+      // city: req.body.city,
+      // from: req.body.from,
+      // relationship: req.body.relationship
 
     });
     const user = await newUser.save();
