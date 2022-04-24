@@ -21,7 +21,7 @@ export default function Messenger() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:9800");
+    socket.current = io("https://api-socket-social.herokuapp.com/");
     socket.current.on("getMessage", (data) => {
       setArrivalMessages({
         sender:data.senderId

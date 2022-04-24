@@ -49,7 +49,7 @@ try {
 app.get('/',(req,res)=>{
 res.send("welcome to home page")
 })
-app.use('/api/upload', createProxyMiddleware({ target: 'http://localhost:3000/', changeOrigin: true }));
+app.use('/api/upload', createProxyMiddleware({ target: 'https://social-media-mo7med.netlify.app/', changeOrigin: true }));
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute)

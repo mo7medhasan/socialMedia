@@ -1,5 +1,5 @@
 const io=require("socket.io")(9800,{
-    cors:{origin:"http://localhost:3000"}
+    cors:{origin:"https://social-media-mo7med.netlify.app/"}
 })
 
 
