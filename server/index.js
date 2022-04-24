@@ -12,6 +12,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const userRoute=require('./routes/users.routes')
 const authRoute=require('./routes/auth.routes')
 const postRoute=require('./routes/posts.routes')
+const conversationRoute=require('./routes/conversations.routes')
+const messageRoute=require('./routes/messages.routes')
 
 
 dotenv.config();
@@ -51,6 +53,9 @@ app.use('/api/upload', createProxyMiddleware({ target: 'http://localhost:3000/',
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute)
+app.use("/api/conversations",conversationRoute)
+app.use("/api/messages",messageRoute)
+
 
 app.listen(PORT,()=>{
 console.log(`the server is connected ${PORT } 😀 🤗 😎`);
