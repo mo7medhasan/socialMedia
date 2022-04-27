@@ -6,7 +6,13 @@ const helmet=require("helmet");
 const morgan=require("morgan");
 const multer=require("multer"); 
 const path=require('path');
-
+const cors = require('cors');
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const userRoute=require('./routes/users.routes')
